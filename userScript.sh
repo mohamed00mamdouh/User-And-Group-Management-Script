@@ -17,7 +17,7 @@ do
 		do
 			echo "===================================="
 			echo "==Welcome To User Management Menue=="
-		        echo "===================================="	
+		    echo "===================================="	
 			echo "1-Add user"
 			echo "2-Delete user"
 			echo "3-Change primary group for a user"
@@ -34,8 +34,8 @@ do
 				read -p "Enter user name:" name
 				sudo useradd $name
 			elif [ $inp2 -eq 2 ]
-                        then
-                                read -p "Enter user name:" name
+            then
+                read -p "Enter user name:" name
 				sudo userdel $name
 			elif [ $inp2 -eq 3 ]
 			then
@@ -43,25 +43,25 @@ do
 				read -p "Enter group name:" grp
 				sudo usermod -g $grp $name
 			elif [ $inp2 -eq 4 ]
-                        then
-                                read -p "Enter user name:" name
+            then
+                read -p "Enter user name:" name
 				read -p "Enter group name:" grp
 				sudo usermod -G $grp $name
 			elif [ $inp2 -eq 5 ]
-                        then
-                                read -p "Enter user name:" name
+            then
+                read -p "Enter user name:" name
 				sudo usermod -L $name
 			elif [ $inp2 -eq 6 ]
-                        then    
-                                read -p "Enter user name:" name 
+            then    
+                read -p "Enter user name:" name 
 				sudo usermod -U $name
 			elif [ $inp2 -eq 7 ]
 			then
-                                read -p "Enter user name:" name
+                read -p "Enter user name:" name
 				sudo passwd $name
 			elif [ $inp2 -eq 8 ]
-                        then    
-                                echo "=========Users========="
+            then    
+                echo "=========Users========="
 				cut -d : -f 1 /etc/passwd
 				echo "======================="
 			elif [ $inp2 -eq 9 ]
@@ -95,7 +95,9 @@ do
 				sudo groupdel $grp
 			elif [ $inp2 -eq 3 ]
 			then
+                echo "=========Groups========="
 				cut -d : -f 1 /etc/group
+                echo "========================"
 			elif [ $inp2 -eq 4 ]
 			then
 				echo "->Ging back<-"
@@ -105,5 +107,10 @@ do
 
 			fi
 		done
+	elif [ $inp -eq 3 ]
+	then
+		echo "exiting..."
+	else 
+		echo "Invalid Option"
 	fi
 done
